@@ -25,44 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      
-    >
-      <body >
-         <Navbar />
+    <html lang="en">
+      <body>
+        <Navbar />
         {children}
-        </body>
-         <Footer />
+        <Footer />
+      </body>
     </html>
   );
 }
-
-
-// import "./globals.css";
-// import Navbar from "@/components/Navbar";
-// import Footer from "@/components/Footer";
-
-// export default function RootLayout({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   return (
-//     <html lang="bn">
-//       <body>
-
-//         {/* Navbar সব page এ */}
-//         <Navbar />
-
-//         {/* Page content */}
-//         {children}
-
-//         {/* Footer সব page এ */}
-//         <Footer />
-
-//       </body>
-//     </html>
-//   );
-// }
-

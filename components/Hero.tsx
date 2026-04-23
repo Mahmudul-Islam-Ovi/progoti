@@ -5,7 +5,7 @@
 // export default function Hero() {
 //   return (
 //     <div className="relative h-screen flex items-center justify-center text-center text-white">
-      
+
 //       {/* Background Image */}
 //       <div className="absolute inset-0">
 //         <img
@@ -48,16 +48,17 @@
 //   );
 // }
 
-
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import data from "@/data/site.json";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   const slides = [
     {
-      image: "/images/banner3.JPG",
+      image: "/images/banner3.jpg",
       title: data.hero.title,
       subtitle: data.hero.subtitle,
     },
@@ -85,7 +86,6 @@ export default function Hero() {
 
   return (
     <div className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
-      
       {/* Background Slider */}
       <AnimatePresence>
         <motion.div
@@ -96,10 +96,11 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="absolute inset-0"
         >
-          <img
+          <Image
             src={slides[index].image}
             alt="slide"
             className="w-full h-full object-cover"
+            fill
           />
           <div className="absolute inset-0 bg-black/60"></div>
         </motion.div>
@@ -117,16 +118,14 @@ export default function Hero() {
           {slides[index].title}
         </h1>
 
-        <p className="mt-4 text-lg text-gray-200">
-          {slides[index].subtitle}
-        </p>
+        <p className="mt-4 text-lg text-gray-200">{slides[index].subtitle}</p>
 
         <div className="mt-6 flex justify-center gap-4 flex-wrap">
-          <a href="/services" rel="noopener noreferrer">
-          <button className="bg-orange-500 px-6 py-3 rounded-lg hover:scale-110 transition">
-            সার্ভিস নিন
-          </button>
-          </a>
+          <Link href="/services" rel="noopener noreferrer">
+            <button className="bg-orange-500 px-6 py-3 rounded-lg hover:scale-110 transition">
+              সার্ভিস নিন
+            </button>
+          </Link>
           <a href={`tel:${data.hero.phone}`}>
             <button className="border px-6 py-3 rounded-lg hover:bg-white hover:text-black transition">
               কল করুন
